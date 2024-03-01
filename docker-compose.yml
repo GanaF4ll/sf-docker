@@ -24,3 +24,14 @@ services:
 
 volumes:
   db_data:
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_HOST=mariadb
+      - PMA_ARBITRARY=1
+    restart: always
+    ports:
+      - 8888:80
+    depends_on:
+      - mariadb
